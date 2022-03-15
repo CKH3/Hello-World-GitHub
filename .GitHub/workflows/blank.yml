@@ -1,16 +1,20 @@
-name: Greeting from Cheung Ka Ho
-on: push
-
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  
+  workflow_dispatch:
+  
 jobs:
-  my-jobs:
-    name: My Job
+  build:
     runs-on: ubuntu-latest
-    steps:
-    - name: Print a Greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Cheung
-        MIDDLE_NAME: Ka
-        LAST_NAME: Ho
+  steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
       run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+        echo Add other actions to build,
+        echo test, and deploy your project.
