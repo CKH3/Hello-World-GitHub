@@ -3,7 +3,7 @@ on: push
  
 jobs:
  my-jobs:
-   name: My Job
+   name: Student
    runs-on: ubuntu-latest
    steps:
    - name: Print a Greeting
